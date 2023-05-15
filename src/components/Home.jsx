@@ -1,10 +1,17 @@
 import React, { useState } from "react";
 import { Form, Link } from "react-router-dom";
-import { useLoaderData } from "react-router-dom";
+//import { useLoaderData } from "react-router-dom";
 import classes from "./AuthForm.module.css";
 
 function Home() {
-  const events = useLoaderData();
+  //const events = useLoaderData();
+  const events = [
+    {
+        id: "id1",
+        match_title: "Some match",
+        result: "One team won"
+    }
+]
   //console.log(events.results);
 
   let currentDate = new Date().toJSON().slice(0, 10);
@@ -28,14 +35,24 @@ function Home() {
     <React.Fragment>
       <h1>  A Team in IPL 2023: {teamList[currentTeam]} </h1>
       <h2>Matches for the date: {currentDate}</h2>
-      <ul>
+      {/* <ul>
         {events.results.map((match) => (
           <li key={match.id}>
             {match.match_title}&nbsp;
             {match.result}
           </li>
         ))}
-      </ul>
+      </ul> */}
+
+        {<ul>
+            {events.map((match) => (
+                <li key={match.id}>
+            {match.match_title}&nbsp;
+            {match.result}
+          </li>
+            ))}
+            </ul>}
+
       <Form method="post" className={classes.form}>
         <p>
           <label htmlFor="randomBox">A Random Text Box</label>
