@@ -33,7 +33,13 @@ function Home() {
   };
   return (
     <React.Fragment>
-      <h1>  A Team in IPL 2023: {teamList[currentTeam]} </h1>
+      <div id={classes["photo-container"]}>
+        <div>Photo</div>
+        <div>Photo</div>
+        <div>Photo</div>
+        <div>Photo</div>
+      </div>
+      <h1> A Team in IPL 2023: {teamList[currentTeam]} </h1>
       <h2>Matches for the date: {currentDate}</h2>
       {/* <ul>
         {events.results.map((match) => (
@@ -44,14 +50,16 @@ function Home() {
         ))}
       </ul> */}
 
-        {<ul>
-            {events.map((match) => (
-                <li key={match.id}>
-            {match.match_title}&nbsp;
-            {match.result}
-          </li>
-            ))}
-            </ul>}
+      {
+        <ul>
+          {events.map((match) => (
+            <li key={match.id}>
+              {match.match_title}&nbsp;
+              {match.result}
+            </li>
+          ))}
+        </ul>
+      }
 
       <Form method="post" className={classes.form}>
         <p>
