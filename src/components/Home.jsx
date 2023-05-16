@@ -1,76 +1,65 @@
 import React, { useState } from "react";
 import { Form, Link } from "react-router-dom";
-//import { useLoaderData } from "react-router-dom";
+import { useLoaderData } from "react-router-dom";
 import classes from "./AuthForm.module.css";
 
 function Home() {
-  //const events = useLoaderData();
-  const events = [
-    {
-        id: "id1",
-        match_title: "Some match",
-        result: "One team won"
-    }
-]
-  //console.log(events.results);
-
+  const events = useLoaderData();
   let currentDate = new Date().toJSON().slice(0, 10);
-  const teamList = [
-    "CSK",
-    "DC",
-    "GT",
-    "KKR",
-    "LSG",
-    "MI",
-    "PBKS",
-    "RR",
-    "RCB",
-    "SRH",
+  const funActivities = [
+    "Picnic in Park",
+    "Beach Volleyball",
+    "Movie Marathon",
+    "Scavenger Hunt",
+    "Karaoke Night",
   ];
-  const [currentTeam, setcurrentTeam] = useState(0);
-  const currentTeamHandler = () => {
-    setcurrentTeam((prev) => (prev + 1) % teamList.length);
-  };
+  const photos = ["Photo", "Photo", "Photo", "Photo"];
   return (
     <React.Fragment>
       <div id={classes["photo-container"]}>
-        <div>Photo</div>
-        <div>Photo</div>
-        <div>Photo</div>
-        <div>Photo</div>
-      </div>
-      <h1> A Team in IPL 2023: {teamList[currentTeam]} </h1>
-      <h2>Matches for the date: {currentDate}</h2>
-      {/* <ul>
-        {events.results.map((match) => (
-          <li key={match.id}>
-            {match.match_title}&nbsp;
-            {match.result}
-          </li>
+        {photos.map((photo, index) => (
+          <div key={index}>
+            <p>{photo}</p>
+          </div>
         ))}
-      </ul> */}
+      </div>
 
-      {
-        <ul>
-          {events.map((match) => (
-            <li key={match.id}>
-              {match.match_title}&nbsp;
-              {match.result}
+      <h2>Alternative Choices: </h2>
+
+      <ul className={classes.ul}>
+        {funActivities.map((activity, index) => (
+          <li key={index}>{activity}</li>
+        ))}
+      </ul>
+
+      <div id={classes["main-container"]}>
+        <div id={classes["text-box"]}>
+          <p>Hello XYZ,</p>
+          <p>Your recommended activity for {currentDate} is:</p>
+          <ul className={classes.ul}>
+            <li>
+              <b>Activity:</b> {events.activity}
             </li>
-          ))}
-        </ul>
-      }
+            <li>
+              <b>Type: </b>
+              {events.type}
+            </li>
+            <li>
+              <b>Participants: </b>
+              {events.participants}
+            </li>
+          </ul>
+          <p>
+            Regards,<br></br>ABC
+          </p>
+        </div>
 
-      <Form method="post" className={classes.form}>
-        <p>
-          <label htmlFor="randomBox">A Random Text Box</label>
-          <input id="randomBox" type="text" name="randomBox" required />
-        </p>
-      </Form>
-      <button onClick={currentTeamHandler}>Change Team</button>
-      <Link className={classes.link} to={"/"}>
-        Go back to login
-      </Link>
+        <div>
+          <Link id={classes["confirmButton"]} className={classes.link} to={"/"}>
+            Confirm
+          </Link>
+        </div>
+      </div>
     </React.Fragment>
   );
 }

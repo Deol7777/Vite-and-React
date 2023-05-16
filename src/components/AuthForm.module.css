@@ -10,6 +10,11 @@
   width: 100%;
 }
 
+.form input{
+    background-color: #d2eaf5;
+    color:black
+}
+
 .form input,
 .form textarea {
   font: inherit;
@@ -25,7 +30,7 @@
   cursor: pointer;
   padding: 0.5rem 1.5rem;
   border-radius: 4px;
-  background-color: #dd5e5e;
+  background-color: #59c4f6;
   color: var(--color-gray-800);
   border: none;
 }
@@ -37,7 +42,7 @@
 }
 
 .actions button:hover {
-  background-color: #862c2c;
+  background-color: #28b0ef;
 }
 
 .actions a:hover {
@@ -53,7 +58,6 @@
 #photo-container {
   display: flex;
   flex-wrap: nowrap;
-  justify-content: space-evenly;
 }
 
 #photo-container > div {
@@ -62,5 +66,43 @@
   text-align: center;
   line-height: 75px;
   font-size: 30px;
-  padding: 10px;
+  padding: 10px 40px;
+}
+
+#main-container {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+#text-box
+{
+    background-color: white;
+    padding: 10px;
+    border: solid black 1px;
+    width: 70%;
+}
+.ul
+{
+    list-style-type: none;
+    padding-inline-start: 0px;
+}
+
+#confirmButton
+{
+    background-color: #59c4f6;
+    color: black;
+    padding: 6px 30px;
+    border-radius: 30px;
+    margin-top: 70%;
+    margin-left: 20px;
+}
+
+.form input:-webkit-autofill {
+
+    -webkit-box-shadow:0 0 0 50px #d2eaf5 inset; /* Change the color to your own background color */
+    -webkit-text-fill-color: #000000;
+}
+.form input:-webkit-autofill:focus {
+    -webkit-box-shadow: 0 0 0 50px #d2eaf5 inset;
+    -webkit-text-fill-color: #000000;
 }
