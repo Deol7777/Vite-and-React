@@ -7,7 +7,7 @@ import classes from "./AuthForm.module.css";
 
 function AuthForm() {
   const navigation = useNavigation();
-
+  //to check
   //const [searchParams] = useSearchParams();
   const isSubmitting = navigation.state === "submitting";
 
